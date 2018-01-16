@@ -1,24 +1,32 @@
 import { Component } from '@angular/core';
-import {ProductoService} from '../producto.service';
+import { ProductoService } from '../producto.service';
 
 @Component({
     selector: 'app-carp',
     templateUrl: './carp.component.html',
     styleUrls: ['carp.component.css'],
-    providers:[ProductoService]
+    providers: [ProductoService]
 })
-export class CarpComponent{
+export class CarpComponent {
 
-    productos:Array<any> = [];
+    productos: Array<any> = [];
 
-    constructor(private productoService:ProductoService){
+    constructor(private productoService: ProductoService) {
         this.listar_productos()
     }
 
-    listar_productos(){
+    listar_productos() {
         this.productoService.listar_productos()
-        .subscribe(res => {
-            this.productos = res;
-        });
+            .subscribe(
+            res => {
+                this.productos = res;
+            },
+            error => {
+                console.log("Error");
+            },
+            () => {
+                console.log("Peticion finalizada");
+            }
+            );
     }
 }

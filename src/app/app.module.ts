@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { JumboComponent } from './jumbo/jumbo.component';
 import { CarpComponent } from './carp/carp.component';
+import { DetalleComponent } from './detalle/detalle.component';
+import { AppRoutesModule } from './app.routes.module';
 
 
 @NgModule({
@@ -14,11 +16,13 @@ import { CarpComponent } from './carp/carp.component';
     AppComponent,
     HeaderComponent,
     JumboComponent,
-    CarpComponent
+    CarpComponent,
+    DetalleComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
