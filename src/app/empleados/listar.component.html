@@ -1,0 +1,20 @@
+<br>
+<div class="container">
+    <h3>Lista de Empleados</h3>
+    <table class="table">
+        <thead>
+            <th>Nombre</th>
+            <th>Nit</th>
+            <th>Telefono</th>
+            <th>Correo</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let e of empleados">
+                <td>{{e.nombre}}</td>
+                <td>{{e.nit}}</td>
+                <td>{{e.telefono}}</td>
+                <td>{{e.correo}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

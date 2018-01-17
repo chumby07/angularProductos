@@ -1,13 +1,13 @@
 <div class="container">
     <div class="row">
         <div class="col-md-4" style="width: 18rem">
-            <img class="card-img-top" [src]="p.foto" alt="Card image cap">
+            <img class="card-img-top" [src]="producto.foto" alt="Card image cap">
         </div>
         <div class="col-md-8">
-            <h1>Nombre:</h1>
+            <h1>Nombre:{{producto.nombre}}</h1>
             <h2>Descripcion:</h2>
-            <p></p>
-            <h2>Precio Actual: </h2>
+            <p>{{producto.descripcion}}</p>
+            <h2>Precio Actual: ${{producto.precio | number}}</h2>
         </div>
     </div>
 </div>
