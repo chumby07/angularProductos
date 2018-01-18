@@ -2,18 +2,30 @@
 <div class="container">
     <h3>Lista de Empleados</h3>
     <table class="table">
-        <thead>
+        <thead style="text-align: left;">
             <th>Nombre</th>
             <th>Nit</th>
             <th>Telefono</th>
             <th>Correo</th>
+            <th>Modificar</th>
+            <th>Eliminar</th>
         </thead>
         <tbody>
-            <tr *ngFor="let e of empleados">
+            <tr style="text-align: left;" *ngFor="let e of empleados">
                 <td>{{e.nombre}}</td>
                 <td>{{e.nit}}</td>
                 <td>{{e.telefono}}</td>
                 <td>{{e.correo}}</td>
+                <td>
+                    <a class="btn btn-success" [routerLink]="['modificar', e.idEmpleado]">
+                        <i class="fa fa-eyedropper" aria-hidden="true"></i>
+                    </a>
+                </td>
+                <td>
+                    <button type="button" class="btn btn-danger" (click)="eliminarempleadoComponent(e.idEmpleado)">
+                        <i class="fa fa-trash" aria-hidden="true"></i>    
+                    </button>
+                </td>
             </tr>
         </tbody>
     </table>

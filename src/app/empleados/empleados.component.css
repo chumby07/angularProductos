@@ -1,3 +1,9 @@
 .activ{
     color: red !important;
 }
+
+.inputNo{
+    background-color: transparent;
+    border-width:0px;
+    border:none !important;
+}

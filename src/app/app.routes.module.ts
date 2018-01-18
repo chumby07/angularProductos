@@ -7,6 +7,7 @@ import { ContactoComponent } from './contacto/contacto.component';
 import { EmpleadosComponent } from './empleados/empleados.component';
 import { ListarEmpleadosComponent } from './empleados/listar.component';
 import { RegEmpleadosComponent } from './empleados/registrar.component';
+import { ModificarEmpleadosComponent } from './empleados/modificarEmpleados.component';
 
 const appRoutes: Routes = [
     { path: 'home', component: HomeComponent },
@@ -15,7 +16,14 @@ const appRoutes: Routes = [
     {
         path: 'empleados', component: EmpleadosComponent,
         children: [
-            { path: 'listar', component: ListarEmpleadosComponent },
+            {
+                path: 'listar',
+                children: [
+                    {path: '', component: ListarEmpleadosComponent},
+                    {path: 'listar/:id', component: ListarEmpleadosComponent},
+                    { path: 'modificar/:id', component: ModificarEmpleadosComponent }
+                ]
+            },
             { path: 'registrar', component: RegEmpleadosComponent }
         ]
     },

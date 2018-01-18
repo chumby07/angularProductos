@@ -9,8 +9,8 @@ import { ProductoService } from '../producto.service';
 
 export class ListarEmpleadosComponent{
 
-    empleados:Array<any>= [];
-
+    empleados:any = [];
+    v:boolean = true;
     constructor(private empleadosService:ProductoService){
         this.listarEmpleadosComponent();
     }
@@ -22,5 +22,4 @@ export class ListarEmpleadosComponent{
             }
         )
     }
-
 }

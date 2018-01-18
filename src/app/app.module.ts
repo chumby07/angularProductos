@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {HttpClientModule} from '@angular/common/http';
+import {HttpModule} from '@angular/http';
 
 
 import { AppComponent } from './app.component';
@@ -15,6 +15,7 @@ import { FormsModule } from '@angular/forms';
 import { EmpleadosComponent } from './empleados/empleados.component';
 import { ListarEmpleadosComponent } from './empleados/listar.component';
 import { RegEmpleadosComponent } from './empleados/registrar.component';
+import { ModificarEmpleadosComponent } from './empleados/modificarEmpleados.component';
 
 
 @NgModule({
@@ -28,11 +29,12 @@ import { RegEmpleadosComponent } from './empleados/registrar.component';
     ContactoComponent,
     EmpleadosComponent,
     ListarEmpleadosComponent,
-    RegEmpleadosComponent
+    RegEmpleadosComponent,
+    ModificarEmpleadosComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule,
+    HttpModule,
     AppRoutesModule,
     FormsModule
   ],
