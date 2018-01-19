@@ -48,7 +48,7 @@ export class ProductoService {
   }
 
   eliminarEmpleadoService(id:any):Observable<any>{
-    return this._http.get(`${rutas.rutaEmpleados}?delEmpleado=${id}`).map(res => res.json());
+    return this._http.get(`${rutas.rutaEmpleados}?delEmpleado=${id}`);
   }
 
 }

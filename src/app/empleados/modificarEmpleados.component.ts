@@ -3,7 +3,7 @@ import { ProductoService } from '../producto.service';
 import { ActivatedRoute } from '@angular/router';
 import { AppRoutesModule } from '../app.routes.module';
 import { Router } from '@angular/router';
-import { error } from 'util';
+import { Location } from '@angular/common';
 
 @Component({
     selector: 'app-modificarEmpleados',
@@ -15,7 +15,7 @@ export class ModificarEmpleadosComponent{
     datosEmpleado:any = {};
     _id = this.active.snapshot.paramMap.get('id');
 
-    constructor(private active:ActivatedRoute, private service:ProductoService, private ruta:Router){
+    constructor(private active:ActivatedRoute, private service:ProductoService, private location: Location){
         this.obtenerDatosEmpleado();
     }
 
@@ -33,17 +33,7 @@ export class ModificarEmpleadosComponent{
     modificarEmpleadoComponent(){
         this.service.modificarEmpleadoService(this.datosEmpleado).subscribe(
             res => {
-                console.log(res);
-            },
-            error => {
-                console.log(error);
-            }
-        )
-    }
-
-    eliminarempleadoComponent(id){
-        this.service.eliminarEmpleadoService(id).subscribe(
-            res => {
+                this.location.back();
                 console.log(res);
             },
             error => {

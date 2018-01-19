@@ -11,6 +11,7 @@ export class ListarEmpleadosComponent{
 
     empleados:any = [];
     v:boolean = true;
+    id:any;
     constructor(private empleadosService:ProductoService){
         this.listarEmpleadosComponent();
     }
@@ -19,6 +20,21 @@ export class ListarEmpleadosComponent{
         this.empleadosService.listarEmpleadosService().subscribe(
             res => {
                 this.empleados = res;
+            }
+        )
+    }
+
+    eliminar(id){
+        this.id = id;
+    }
+
+    eliminarempleadoComponent(){
+        this.empleadosService.eliminarEmpleadoService(this.id).subscribe(
+            res => {
+                this.listarEmpleadosComponent();
+            },
+            error => {
+                console.log(error);
             }
         )
     }
