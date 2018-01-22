@@ -16,6 +16,10 @@ import { EmpleadosComponent } from './empleados/empleados.component';
 import { ListarEmpleadosComponent } from './empleados/listar.component';
 import { RegEmpleadosComponent } from './empleados/registrar.component';
 import { ModificarEmpleadosComponent } from './empleados/modificarEmpleados.component';
+import { FooterComponent } from './footer/footer.component';
+import { LoginComponent } from './login/login.component';
+import { UserService } from './user.service';
+import { AuthguardGuard } from './authguard.guard';
 
 
 @NgModule({
@@ -30,7 +34,9 @@ import { ModificarEmpleadosComponent } from './empleados/modificarEmpleados.comp
     EmpleadosComponent,
     ListarEmpleadosComponent,
     RegEmpleadosComponent,
-    ModificarEmpleadosComponent
+    ModificarEmpleadosComponent,
+    FooterComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +44,7 @@ import { ModificarEmpleadosComponent } from './empleados/modificarEmpleados.comp
     AppRoutesModule,
     FormsModule
   ],
-  providers: [],
+  providers: [UserService, AuthguardGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

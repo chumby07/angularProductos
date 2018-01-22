@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Contacto } from './contacto';
 import { ProductoService } from '../producto.service'
 import { error } from 'util';
+import { UserService } from '../user.service';
 
 @Component({
     selector: 'app-contacto',
@@ -12,7 +13,7 @@ import { error } from 'util';
 
 export class ContactoComponent{
 
-    constructor(private contactoService: ProductoService){
+    constructor(private contactoService: ProductoService, private user:UserService){
     }
 
     ngOnInit(){

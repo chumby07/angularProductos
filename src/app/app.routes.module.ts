@@ -8,26 +8,30 @@ import { EmpleadosComponent } from './empleados/empleados.component';
 import { ListarEmpleadosComponent } from './empleados/listar.component';
 import { RegEmpleadosComponent } from './empleados/registrar.component';
 import { ModificarEmpleadosComponent } from './empleados/modificarEmpleados.component';
+import { LoginComponent } from './login/login.component';
+import { UserService } from './user.service';
+import { AuthguardGuard } from './authguard.guard';
 
 const appRoutes: Routes = [
-    { path: 'home', component: HomeComponent },
-    { path: 'detalle/:id', component: DetalleComponent },
-    { path: 'contacto', component: ContactoComponent },
+    { path: 'login', component: LoginComponent },
+    { path: 'home', canActivate: [AuthguardGuard], component: HomeComponent },
+    { path: 'detalle/:id', canActivate: [AuthguardGuard], component: DetalleComponent },
+    { path: 'contacto', canActivate: [AuthguardGuard], component: ContactoComponent },
     {
-        path: 'empleados', component: EmpleadosComponent,
+        path: 'empleados', canActivate: [AuthguardGuard], component: EmpleadosComponent,
         children: [
             {
                 path: 'listar',
                 children: [
-                    {path: '', component: ListarEmpleadosComponent},
-                    {path: 'listar/:id', component: ListarEmpleadosComponent},
-                    { path: 'modificar/:id', component: ModificarEmpleadosComponent }
+                    {path: '', canActivate: [AuthguardGuard], component: ListarEmpleadosComponent},
+                    {path: 'listar/:id', canActivate: [AuthguardGuard], component: ListarEmpleadosComponent},
+                    { path: 'modificar/:id', canActivate: [AuthguardGuard], component: ModificarEmpleadosComponent }
                 ]
             },
-            { path: 'registrar', component: RegEmpleadosComponent }
+            { path: 'registrar', canActivate: [AuthguardGuard], component: RegEmpleadosComponent }
         ]
     },
-    { path: '', redirectTo: 'home', pathMatch: 'full' }
+    { path: '', redirectTo: 'login', pathMatch: 'full' }
 ];
 
 @NgModule({

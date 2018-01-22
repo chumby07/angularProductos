@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3" style="width: 800px;
+  margin:0 auto;">
+    <form #formLogin (ngSubmit)="login()">
+      <div class="form-group">
+        <label for="usuario">Usuario</label>
+        <input type="text" class="form-control" id="usuario" name="usuario" [(ngModel)]="datosLogin.usuario" placeholder="User">
+      </div>
+      <div class="form-group">
+        <label for="contraseña">Contraseña</label>
+        <input type="password" class="form-control" id="contra" name="contra" [(ngModel)]="datosLogin.contra" placeholder="Password">
+      </div>
+      <button type="submit" class="btn btn-primary">Iniciar session</button>
+    </form>
+  </div>
+</div>

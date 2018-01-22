@@ -51,4 +51,8 @@ export class ProductoService {
     return this._http.get(`${rutas.rutaEmpleados}?delEmpleado=${id}`);
   }
 
+  loginUserService(datosUser:any):Observable<any>{
+    return this._http.post(`${rutas.rutaEmpleados}?login`, datosUser, httpOptions);
+  }
+
 }
